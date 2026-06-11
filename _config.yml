@@ -98,7 +98,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Biroue%20Isaac&backgroundColor=EE0000&textColor=ffffff&fontSize=38&fontWeight=700&radius=50"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
