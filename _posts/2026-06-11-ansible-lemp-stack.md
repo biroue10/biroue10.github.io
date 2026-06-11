@@ -1,7 +1,7 @@
 ---
 title: "Project: Ansible LEMP Stack Deployment"
 date: 2026-06-11 00:00:00 +0100
-categories: [Projects, Ansible]
+categories: [Automation, Projects]
 tags: [ansible, nginx, mariadb, php, rhel, automation, iac, linux, devops, infrastructure-as-code, lemp, php-fpm, systemd, idempotence, roles, playbook, inventory, sysadmin, rhel10, open-source]
 ---
 
