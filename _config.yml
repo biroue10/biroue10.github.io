@@ -40,9 +40,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://github.com/biroue10
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/isaac-biroue/
 
 # Site Verification Settings
 webmaster_verifications:
