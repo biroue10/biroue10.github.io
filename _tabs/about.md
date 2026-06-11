@@ -14,140 +14,133 @@ Casablanca, Morocco · [biroueisaac@gmail.com](mailto:biroueisaac@gmail.com) · 
 
 ## Summary
 
-Providing advanced IT support and technical leadership for one of our key clients. I handle complex incident resolution, mentor junior analysts, and act as a subject matter expert to ensure consistent, high-quality service delivery.
+IT professional with 4+ years of experience in technical support, infrastructure administration, and service delivery. Currently serving as a Level 2 Service Desk Analyst and Subject Matter Expert at Insight, where I handle complex incident escalations, mentor junior analysts, and drive continuous service improvement.
 
-Experienced in remote support, Linux administration (Ubuntu, CentOS, RHEL), scripting (Bash, Python), automation with Ansible, and monitoring tools like Nagios and Prometheus. I also contribute to continuous service improvement through documentation, root cause analysis, and close collaboration with cross-functional teams.
-
-Outside of work, I train daily on a real **RHEL 10 server** through a structured 38-module self-driven curriculum toward **Senior Systems Engineer**. This blog is the public record of that journey.
+Hands-on expertise in Linux administration (RHEL, Ubuntu, CentOS), scripting (Bash, Python, PowerShell), infrastructure automation with Ansible, and monitoring with Prometheus and Grafana. Pursuing a structured, self-driven path toward Senior Systems Engineer through daily practice on a dedicated RHEL 10 lab server.
 
 ---
 
 ## Experience
 
 ### Insight — Service Desk Analyst L2
-**Nov 2024 – present · Montreal, Canada (Remote)**
+**Nov 2024 – Present · Montreal, Canada (Remote)**
 
-- Responding to escalated service requests and resolving complex IT issues
-- Troubleshooting hardware, software, and network-related problems
-- Providing remote support across multiple locations
-- Documenting technical solutions and contributing to the knowledge base
-- Collaborating with cross-functional teams to improve overall service delivery
+- Own escalated incident resolution across hardware, software, and network domains
+- Mentor junior analysts and serve as the team's subject matter expert
+- Deliver remote support to users across multiple global locations
+- Maintain and enrich the internal knowledge base with documented solutions
+- Collaborate with cross-functional teams to identify and implement service improvements
 
-### Nextlink Group — IT Support
-**Dec 2023 – present · Casablanca, Morocco**
+### Nextlink Group — IT Support Specialist
+**Dec 2023 – Present · Casablanca, Morocco**
 
-- Respond to and resolve user technical support tickets
-- Configure and manage installation profiles on Kandji (Mac) and Intelligent Hub (Windows)
-- Create, configure, and update MDM profiles and security policies
-- Collaborate with development and sysadmin teams to integrate new applications
-- Maintain hardware and software inventory in Asset Tiger
-- Conduct user training sessions and produce support documentation
+- Administer MDM platforms (Kandji for macOS, Intelligent Hub for Windows) — profiles, policies, and enforcement
+- Partner with development and infrastructure teams to automate application onboarding
+- Manage hardware and software asset inventory using Asset Tiger
+- Produce end-user training materials and technical documentation
 
 ### LMDAO Call — IT Support
 **Jan 2023 – Oct 2023 · Casablanca, Morocco**
 
-- Implement and enforce security measures including antivirus and firewalls
-- Provide remote assistance to off-site users
-- Maintain hardware/software inventory and document solutions
-- Conduct end-user training on new tools and best practices
+- Delivered on-site and remote technical support for hardware, software, and network issues
+- Enforced security measures including antivirus deployment and firewall configuration
+- Built and maintained a knowledge base of documented resolutions for recurring incidents
 
 ### RG Consultants — IT Support
 **Feb 2021 – Dec 2022 · Casablanca, Morocco**
 
-- Resolve help desk tickets and provide technical support via phone, email, and in person
-- Diagnose and fix hardware and software issues on desktops and laptops
-- Install, upgrade, and configure hardware and software components
-- Manage user accounts and permissions; troubleshoot network issues
+- Resolved help desk tickets via phone, email, and in-person support
+- Managed user accounts, permissions, software installations, and system updates
+- Performed routine maintenance: backups, patch management, network troubleshooting
 
 ---
 
 ## Technical Skills
 
-| Domain | Tools |
-|--------|-------|
-| **Operating Systems** | Windows, macOS, Linux (RHEL, Ubuntu, CentOS) |
-| **Systems Management** | SCCM, Jamf Pro, Microsoft Intune |
-| **Networking** | TCP/IP, DNS, DHCP |
+| Domain | Technologies |
+|--------|-------------|
+| **Operating Systems** | RHEL 10, Ubuntu, CentOS, Windows Server, macOS |
 | **Scripting & Automation** | Bash, Python, PowerShell, Ansible |
 | **Infrastructure as Code** | Terraform |
 | **Containers & Orchestration** | Docker, Kubernetes |
-| **CI/CD & Build Tools** | Jenkins, Maven |
-| **Security & Compliance** | SELinux, Trivy, SonarQube |
-| **Monitoring & Logging** | Prometheus, Grafana, Nagios |
-| **Cloud Platforms** | AWS, Azure |
-| **Repository Management** | Nexus, JFrog Artifactory |
-| **Version Control** | Git, GitHub |
+| **Monitoring & Observability** | Prometheus, Grafana, Node Exporter, Nagios |
+| **CI/CD** | Jenkins, Maven, GitHub Actions |
+| **Security** | SELinux, Fail2ban, Trivy, SonarQube, OpenSCAP |
+| **Cloud** | AWS (EC2, S3, IAM, VPC), Azure |
+| **Networking** | TCP/IP, DNS, DHCP, firewall-cmd, nftables |
+| **Endpoint Management** | SCCM, Jamf Pro, Kandji, Microsoft Intune |
 | **Service Management** | ServiceNow (Administration, Incident, Workflow) |
-| **Remote Tools** | TeamViewer, AnyDesk, Teams, Slack, Zoom |
+| **Version Control** | Git, GitHub |
+| **Artifact & Registry** | Nexus, JFrog Artifactory |
 
 ---
 
 ## Projects
 
-### Comprehensive Jenkins Pipeline with Docker and Security Scanning
-
-- Deployed and configured three AWS VMs for Jenkins, SonarQube, and Nexus
-- Built a full CI/CD pipeline: Maven build → SonarQube analysis → Nexus artifact storage → Docker image build and push
-- Secured Docker credentials and SonarQube environment variables for streamlined operations
-
-### OCS Inventory Implementation for Asset Management
-
-- Deployed OCS Inventory (open-source IT asset management) across the organization
-- Customized asset categories, labels, and reporting metrics to match organizational requirements
-- Integrated OCS Inventory with existing IT management tools
-- Reduced manual tracking efforts by 40% and improved software license compliance
-
-### ansible-lemp-stack *(in progress)*
+### Ansible LEMP Stack *(active)*
 [github.com/biroue10/ansible-lemp-stack](https://github.com/biroue10/ansible-lemp-stack)
 
-Automated deployment of a full LEMP stack (Nginx, MariaDB, PHP-FPM) on RHEL 10 using Ansible roles.
+Automated deployment of a production-grade LEMP stack (Nginx, MariaDB, PHP-FPM) on RHEL 10 using Ansible roles. Fully idempotent — deploys a clean server to a running stack in a single command.
+
+---
+
+### Jenkins CI/CD Pipeline with Docker and Security Scanning
+
+Full end-to-end DevOps pipeline on AWS:
+
+- Provisioned dedicated EC2 instances for Jenkins, SonarQube, and Nexus
+- Automated the full lifecycle: Maven build → SonarQube static analysis → Nexus artifact storage → Docker image build and registry push
+- Secured all credentials using Jenkins credential management and environment variable injection
+
+---
+
+### OCS Inventory — Asset Management Deployment
+
+- Led the organization-wide rollout of OCS Inventory for hardware and software asset tracking
+- Customized asset categories, reporting metrics, and integrated OCS with existing IT management tooling
+- Reduced manual tracking overhead by **40%** and improved software license compliance accuracy
 
 ---
 
 ## Education
 
-**CESASUP** — Diploma of Specialized Technician
-Oct 2016 – Oct 2018 · Casablanca, Morocco
-
-**National School of Applied Sciences of Safi** — Preparatory Classes
-Oct 2014 – Oct 2016 · Safi, Morocco
+| Degree | Institution | Period |
+|--------|-------------|--------|
+| Diploma of Specialized Technician | CESASUP, Casablanca | 2016 – 2018 |
+| Preparatory Classes | National School of Applied Sciences of Safi | 2014 – 2016 |
 
 ---
 
 ## Certifications
 
 - Docker Essentials: A Developer Introduction
-- Linux Fundamentals
-- Linux Cloud and DevOps
-- Getting Started with Git and GitHub
-- Version Control
+- Linux Fundamentals · Linux Cloud and DevOps
+- Getting Started with Git and GitHub · Version Control
+- Introduction to Front-End, Back-End and Full Web Development
 - Programming with JavaScript
-- Introduction to Front-End Development
-- Introduction to Back-End Development
-- Introduction to Web Development with HTML, CSS, JavaScript
 
 ---
 
 ## Awards
 
-**Certificate of Excellence — CESASUP**
-Awarded to the 2nd best student across all disciplines, first year level, 2016–2017.
+**Certificate of Excellence — CESASUP, 2016–2017**
+Ranked 2nd best student across all disciplines at first-year level.
 
 ---
 
 ## Learning Journey
 
-Currently progressing through a 38-module self-driven curriculum on a real RHEL 10 server:
+Progressing through a 38-module self-driven curriculum on a dedicated RHEL 10 server — every concept is applied hands-on before it is documented.
 
 | # | Module | Status |
 |---|--------|--------|
-| 01 | Linux Fundamentals | ✅ |
-| 02 | Nginx | ✅ |
-| 03 | MariaDB | ✅ |
-| 04 | Monitoring (Prometheus + Grafana) | ✅ |
-| 06 | Linux Internals | ✅ |
-| 07 | High Availability | 🔄 |
-| 08 | Ansible | 🔄 |
-| 09–38 | Security, Docker, K8s, Terraform, Cloud… | ⬜ |
+| 01 | Linux Fundamentals | ✅ Complete |
+| 02 | Nginx | ✅ Complete |
+| 03 | MariaDB | ✅ Complete |
+| 04 | Monitoring — Prometheus & Grafana | ✅ Complete |
+| 06 | Linux Internals — LVM, memory, kernel | ✅ Complete |
+| 07 | High Availability — LB, replication | 🔄 In Progress |
+| 08 | Ansible — roles, IaC, Vault | 🔄 In Progress |
+| 09–38 | Security, Docker, K8s, Terraform, Cloud… | ⬜ Upcoming |
 
-Full roadmap: [syseng-journey/ROADMAP.md](https://github.com/biroue10/syseng-journey/blob/main/ROADMAP.md)
+Full roadmap → [syseng-journey/ROADMAP.md](https://github.com/biroue10/syseng-journey/blob/main/ROADMAP.md)
