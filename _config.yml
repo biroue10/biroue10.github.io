@@ -16,10 +16,10 @@ timezone: Africa/Douala
 
 title: Biroue Isaac # the main title
 
-tagline: Road to Senior Systems Engineer # it will display as the subtitle
+tagline: Road to Junior Systems Administrator # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Documenting my journey from Service Desk to Senior Systems Engineer — RHEL, Nginx, MariaDB, Prometheus, Ansible and beyond.
+  Documenting my journey from Service Desk Analyst to Junior Systems Administrator — RHEL, Nginx, MariaDB, Prometheus, Ansible and beyond.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.

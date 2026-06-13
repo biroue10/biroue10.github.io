@@ -16,7 +16,7 @@ Casablanca, Morocco · [biroueisaac@gmail.com](mailto:biroueisaac@gmail.com) · 
 
 IT professional with 4+ years of experience in technical support, infrastructure administration, and service delivery. Currently serving as a Level 2 Service Desk Analyst and Subject Matter Expert at Insight, where I handle complex incident escalations, mentor junior analysts, and drive continuous service improvement.
 
-Hands-on expertise in Linux administration (RHEL, Ubuntu, CentOS), scripting (Bash, Python, PowerShell), infrastructure automation with Ansible, and monitoring with Prometheus and Grafana. Pursuing a structured, self-driven path toward Senior Systems Engineer through daily practice on a dedicated RHEL 10 lab server.
+Building hands-on expertise in Linux administration (RHEL, Ubuntu, CentOS), Bash scripting, infrastructure automation with Ansible, and monitoring with Prometheus and Grafana. Pursuing a structured, self-driven path toward Junior Systems Administrator through daily practice on a dedicated RHEL 10 lab server.
 
 ---
 
