@@ -35,6 +35,7 @@ No tutorials without practice. No theory without verification.
 | net-mapper | Network scanner with change detection | [github](https://github.com/biroue10/net-mapper) |
 | multi-site-nginx | 3 virtual hosts on one server | [github](https://github.com/biroue10/multi-site-nginx) |
 | ansible-lemp-stack | Automated LEMP stack with Ansible | [github](https://github.com/biroue10/ansible-lemp-stack) |
+| db-guardian | Automated MariaDB backup with retention and logging | [github](https://github.com/biroue10/db-guardian) |
 
 ---
 
