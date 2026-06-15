@@ -1,6 +1,6 @@
 ---
 title: "Project: WordPress Multisite — One Installation, Multiple Sites"
-date: 2026-06-15 07:00:00 +0100
+date: 2026-06-15 00:00:00 +0000
 categories: [Projects, WordPress]
 tags: [wordpress, multisite, nginx, rhel, linux, php-fpm, sysadmin, network]
 ---
