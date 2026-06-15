@@ -38,6 +38,7 @@ No tutorials without practice. No theory without verification.
 | db-guardian | Automated MariaDB backup with retention and logging | [github](https://github.com/biroue10/db-guardian) |
 | wordpress-deployer | Automated WordPress installation on RHEL | [github](https://github.com/biroue10/wordpress-deployer) |
 | wp-cli-toolkit | WordPress management from the command line | [github](https://github.com/biroue10/wp-cli-toolkit) |
+| wordpress-multisite | WordPress Multisite network with 4 sites on one installation | [github](https://github.com/biroue10/wordpress-multisite) |
 
 ---
 
