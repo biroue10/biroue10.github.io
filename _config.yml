@@ -118,12 +118,12 @@ comments:
   giscus:
     repo: biroue10/biroue10.github.io
     repo_id: R_kgDOS3EMDg
-    category: General
-    category_id: DIC_kwDOS3EMDs4C--oR
+    category: Announcements
+    category_id: DIC_kwDOS3EMDs4C--oQ
     mapping: pathname
     strict: 0
     input_position: bottom
-    lang: en
+    lang: fr
     reactions_enabled: 1
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
