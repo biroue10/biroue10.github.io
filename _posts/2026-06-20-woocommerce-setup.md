@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "WC-01 : Installation et configuration de WooCommerce"
+title: "WC-01 : Installation et configuration de WooCommerce — Journal complet"
 date: 2026-06-20
 categories: [wordpress, woocommerce, ecommerce]
-tags: [woocommerce, stripe, wordpress, ecommerce, wp-cli]
+tags: [woocommerce, stripe, wordpress, ecommerce, wp-cli, troubleshooting]
 ---
 
 ## Objectif
 
-Installer et configurer WooCommerce sur un serveur WordPress auto-hébergé (RHEL 10), en configurant la devise, les modes de livraison, et les passerelles de paiement (hors ligne + Stripe).
+Installer et configurer WooCommerce sur un serveur WordPress auto-hébergé (RHEL 10), configurer la devise, les modes de livraison, et les passerelles de paiement (hors ligne + Stripe).
 
 ## Environnement
 
@@ -16,82 +16,144 @@ Installer et configurer WooCommerce sur un serveur WordPress auto-hébergé (RHE
 - **Web Server** : Nginx
 - **PHP** : PHP-FPM
 - **Base de données** : MariaDB
-- **WordPress** : installé via WP-CLI
+- **WordPress** : Multisite, installé via WP-CLI
+- **Chemin** : `/var/www/monsite`
 
-## Étapes réalisées
+---
 
-### 1. Installation de WooCommerce via WP-CLI
+## Étape 1 — Installation de WooCommerce
 
 ```bash
-sudo /usr/local/bin/wp plugin install woocommerce --activate --allow-root --path=/var/www/html/wordpress
+sudo /usr/local/bin/wp plugin install woocommerce --activate \
+  --allow-root --path=/var/www/monsite
 ```
 
-### 2. Configuration de base (Setup Wizard)
+### Problème rencontré : `wp` introuvable avec sudo
 
-Via l'interface admin WordPress → WooCommerce → Setup Wizard :
+Au départ, `sudo wp` échouait car `/usr/local/bin` n'était pas dans le `secure_path` de sudo.
 
-- **Localisation** : Maroc
-- **Devise** : MAD (Dirham marocain)
-- **Unité de poids** : kg
-- **Unité de dimension** : cm
+**Erreur :**
+```
+sudo: wp: command not found
+```
 
-### 3. Configuration de la livraison
+**Solution :** Utiliser le chemin absolu et ajouter `/usr/local/bin` à `secure_path` via `visudo`.
+
+```bash
+sudo visudo
+# Modifier la ligne secure_path :
+Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+```
+
+---
+
+## Étape 2 — Setup Wizard WooCommerce
+
+Via l'interface admin WordPress → **WooCommerce → Setup Wizard** :
+
+| Paramètre | Valeur |
+|-----------|--------|
+| Localisation | Maroc |
+| Devise | MAD (Dirham marocain) |
+| Unité de poids | kg |
+| Unité de dimension | cm |
+
+### Configuration de la livraison
 
 - Mode de géolocalisation : **Géolocaliser (recommandé)**
-- Zone de livraison : **Tous les pays**
+- Zone de livraison : **Ship to all countries**
 - Mode : Ship to billing address by default
 
-### 4. Passerelles de paiement
+---
 
-#### Paiement hors ligne
-- **Virement bancaire** : activé
+## Étape 3 — Paiements hors ligne
+
+Dans **WooCommerce → Settings → Payments** :
+
+- **Virement bancaire (BACS)** : activé
 - **Paiement à la livraison (COD)** : activé
 
-#### Stripe (paiement par carte)
-- Plugin Stripe for WooCommerce installé
-- Connexion via OAuth (Stripe Connect)
-- **Mode Test activé** : toutes les transactions sont simulées
-- Compte Stripe lié : `acct_1TjT2S8tRhMGRdiA`
-- Webhook configuré et synchronisé
+---
 
-### 5. Sécurité et avertissements
+## Étape 4 — Configuration Stripe
 
-Dans un environnement de lab local (sans SSL), des avertissements normaux apparaissent :
-- Pas de certificat SSL → attendu en HTTP local
-- Apple Pay désactivé → nécessite un domaine HTTPS public
-- Géolocalisation MaxMind → requiert une licence payante
-
-Ces éléments sont à configurer en production.
-
-## Commandes WP-CLI utiles
+### Installation du plugin Stripe
 
 ```bash
-# Lister les plugins actifs
-sudo /usr/local/bin/wp plugin list --allow-root --path=/var/www/html/wordpress
-
-# Vérifier le statut de WooCommerce
-sudo /usr/local/bin/wp wc --allow-root --path=/var/www/html/wordpress
-
-# Lister les produits
-sudo /usr/local/bin/wp wc product list --allow-root --path=/var/www/html/wordpress
+sudo /usr/local/bin/wp plugin install woocommerce-gateway-stripe \
+  --activate --allow-root --path=/var/www/monsite
 ```
 
-## Concepts clés appris
+### Connexion via OAuth (Stripe Connect)
 
-| Concept | Explication |
-|---------|-------------|
-| WooCommerce | Plugin e-commerce open source pour WordPress |
-| Stripe Connect | OAuth permettant de lier un compte Stripe sans exposer les clés API |
-| Mode Test Stripe | Simule les transactions sans argent réel |
-| COD (Cash on Delivery) | Paiement à la livraison |
-| MAD | Code ISO 4217 du Dirham marocain |
+Au lieu d'entrer manuellement les clés API, Stripe for WooCommerce utilise OAuth.
+Lors du setup, l'account Stripe a été lié directement.
 
-## Résultat
+**Résultat dans WooCommerce → Payments → Stripe :**
 
-WooCommerce est opérationnel avec :
+```
+Account status
+Test Mode
+WooCommerce Inc.
+acct_1TjT2S8tRhMGRdiA
+
+Payment  : Disabled
+Payout   : Disabled
+Webhook  : Enabled
+Sync     : Enabled
+```
+
+**Mode Test activé** — toutes les transactions sont simulées.
+
+### Avertissements normaux en environnement lab
+
+| Avertissement | Cause | Action requise en prod |
+|---------------|-------|------------------------|
+| No SSL certificate | HTTP local, pas HTTPS | Certificat SSL valide |
+| Apple Pay domain registration failed | Requiert domaine HTTPS public | Configurer en prod |
+| Geolocation not configured | MaxMind requiert licence payante | Acheter licence MaxMind |
+
+Ces avertissements sont **attendus en lab local** et n'empêchent pas le fonctionnement.
+
+---
+
+## Désactiver le mode "Coming Soon"
+
+WooCommerce active le mode "Coming Soon" par défaut. La boutique était inaccessible.
+
+**Diagnostic :**
+```bash
+sudo /usr/local/bin/wp option list --search="*coming*" \
+  --allow-root --path=/var/www/monsite
+```
+
+**Résultat :**
+```
++-------------------------+--------------+
+| option_name             | option_value |
++-------------------------+--------------+
+| woocommerce_coming_soon | yes          |
++-------------------------+--------------+
+```
+
+**Correction :**
+```bash
+sudo /usr/local/bin/wp option update woocommerce_coming_soon no \
+  --allow-root --path=/var/www/monsite
+```
+
+---
+
+## Résultat final WC-01
+
+WooCommerce opérationnel avec :
 - Devise MAD configurée
 - Livraison mondiale activée
 - Paiement hors ligne (virement + COD) actif
-- Stripe en mode test connecté et prêt
+- Stripe en mode test connecté (acct_1TjT2S8tRhMGRdiA)
 
-**Prochaine étape** : WC-02 — Création et gestion de produits WooCommerce.
+**Plugins actifs liés à WooCommerce :**
+```
+woocommerce               active  10.8.1
+woocommerce-gateway-stripe active  10.8.2
+```
